@@ -21,3 +21,28 @@
 // Stretch goal
 // Make the countdown live (show a countdown that updates several times a
 // second)
+
+const body = document.querySelector('body');
+const result = document.getElementById('result');
+let youwin = false;
+
+const time = Math.floor(Math.random() * 3 + 2);
+document.getElementById('time').innerText = time;
+
+function OnClick(){
+    youwin = true;
+    result.innerText = 'congratulation';
+    body.removeEventListener('click',OnClick);
+}
+
+setTimeout(function () {
+console.log('your time is finish');
+if (!youwin) {
+  result.innerText = 'game over';
+
+  body.removeEventListener('click',OnClick);
+}
+},time * 5000);
+
+console.log(time);
+body.addEventListener('click',OnClick);

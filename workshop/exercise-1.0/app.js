@@ -11,3 +11,13 @@
 // OPTIONAL
 // Feel free to add some CSS to this once you're done
 // --------------------------------------------------
+
+let body = document.querySelector('body');
+let OnClick = document.getElementById('OnClick');
+
+function GetClick(){
+    OnClick.innerText = 'SURPRISE';
+    body.removeEventListener('click',GetClick);
+}
+
+body.addEventListener('click',GetClick);
